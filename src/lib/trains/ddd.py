@@ -132,6 +132,7 @@ class DddTrainer(BaseTrainer):
         if opt.debug ==4:
           debugger.save_all_imgs(opt.debug_dir, prefix='{}'.format(iter_id))
         else:
+          debugger.save_all_imgs(opt.debug_dir, prefix='{}'.format(iter_id))
           debugger.show_all_imgs(pause=True)
 
   def save_result(self, output, batch, results):

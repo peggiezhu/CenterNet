@@ -140,7 +140,7 @@ for SPLIT in SPLITS:
           print('pt_3d', pt_3d)
           print('location', location)
       if DEBUG:
-        cv2.imshow('image', image)
+        #cv2.imshow('image', image)
         cv2.waitKey()
 
 
