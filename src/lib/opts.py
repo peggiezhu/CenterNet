@@ -272,9 +272,7 @@ class opts(object):
     opt.data_dir = os.path.join(opt.root_dir, 'data')
     opt.exp_dir = os.path.join(opt.root_dir, 'exp', opt.task)
     opt.save_dir = os.path.join(opt.exp_dir, opt.exp_id)
-    opt.save_dir = "/root/CenterNet/output"
     opt.debug_dir = os.path.join(opt.save_dir, 'debug')
-    print('The output will be saved to ', opt.save_dir)
     
     if opt.resume and opt.load_model == '':
       model_path = opt.save_dir[:-4] if opt.save_dir.endswith('TEST') \

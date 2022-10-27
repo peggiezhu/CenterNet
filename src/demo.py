@@ -31,7 +31,7 @@ def demo(opt):
         time_str = ''
         for stat in time_stats:
           time_str = time_str + '{} {:.3f}s |'.format(stat, ret[stat])
-        print(time_str)
+        #print(time_str)
         if cv2.waitKey(1) == 27:
             return  # esc to quit
   else:
@@ -50,7 +50,7 @@ def demo(opt):
       time_str = ''
       for stat in time_stats:
         time_str = time_str + '{} {:.3f}s |'.format(stat, ret[stat])
-      print(time_str)
+      #print(time_str)
 if __name__ == '__main__':
   opt = opts().init()
   demo(opt)

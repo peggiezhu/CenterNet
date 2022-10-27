@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import random
+
 import numpy as np
 import cv2
 from .ddd_utils import compute_box_3d, project_to_image, draw_box_3d
@@ -236,18 +238,11 @@ class Debugger(object):
   def save_img(self, imgId='default', path='./cache/debug/'):
     cv2.imwrite(path + '{}.png'.format(imgId), self.imgs[imgId])
 
-  def save_all_imgs(self, path='./cache/debug/', prefix='', genID=False):
-    if genID:
-      try:
-        idx = int(np.loadtxt(path + '/id.txt'))
-      except:
-        idx = 0
-      prefix=idx
-      np.savetxt(path + '/id.txt', np.ones(1) * (idx + 1), fmt='%d')
-    k = 0
-    for i, v in self.imgs.items():
-      #cv2.imwrite(path + '/{}{}.png'.format(prefix, i), v)
-      cv2.imwrite("/root/CenterNet/output/" + str(k) + ".png", v)
+  def save_all_imgs(self, path='/root/CenterNet/output', prefix='', genID=True):
+    for _, v in self.imgs.items():
+      file_index = random.randint(100000, 999999)
+      print("Img is created, save as {}/{}.png".format(path, file_index))
+      cv2.imwrite(path + '/{}.png'.format(file_index), v)
   def remove_side(self, img_id, img):
     if not (img_id in self.imgs):
       return
